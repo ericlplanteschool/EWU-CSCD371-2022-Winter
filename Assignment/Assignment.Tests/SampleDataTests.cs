@@ -15,8 +15,17 @@ namespace Assignment.Tests
         {
             SampleData sampleData = new();
             Assert.IsNotNull(sampleData.CsvRows);
-            Assert.AreEqual(sampleData.CsvRows.Count(), 50);
-            Assert.AreEqual(sampleData.CsvRows.First(), "1,Priscilla,Jenyns,pjenyns0@state.gov,7884 Corry Way,Helena,MT,70577");
+            Assert.AreEqual<int>(50, sampleData.CsvRows.Count());
+            Assert.AreEqual<string>("1,Priscilla,Jenyns,pjenyns0@state.gov,7884 Corry Way,Helena,MT,70577", sampleData.CsvRows.First());
+        }
+
+        [TestMethod]
+        public void People_Read_Success()
+        {
+            SampleData sampleData = new();
+            Assert.IsNotNull(sampleData.People);
+            Assert.AreEqual<int>(50, sampleData.People.Count());
+            Assert.AreEqual<string>("Priscilla", sampleData.People.First().FirstName);
         }
     }
 }
