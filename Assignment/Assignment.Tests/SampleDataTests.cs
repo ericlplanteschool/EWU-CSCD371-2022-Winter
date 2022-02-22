@@ -33,8 +33,17 @@ namespace Assignment.Tests
         {
             SampleData sampleData = new();
             IEnumerable<string> states = sampleData.GetUniqueSortedListOfStatesGivenCsvRows();
-            Assert.AreEqual("AL", states.First());
-            Assert.AreEqual("WV", states.Last());
+            Assert.AreEqual<string>("AL", states.First());
+            Assert.AreEqual<string>("WV", states.Last());
+        }
+
+        [TestMethod]
+        public void GetAggregateSortedListOfStatesUsingCsvRows_Read_Success()
+        {
+            SampleData sampleData = new();
+            string states = sampleData.GetAggregateSortedListOfStatesUsingCsvRows();
+            Assert.IsNotNull(states);
+            Assert.AreNotEqual<string>(string.Empty, states);
         }
     }
 }
