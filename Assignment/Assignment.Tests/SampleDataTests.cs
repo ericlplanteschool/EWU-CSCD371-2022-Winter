@@ -45,5 +45,14 @@ namespace Assignment.Tests
             Assert.IsNotNull(states);
             Assert.AreNotEqual<string>(string.Empty, states);
         }
+
+        [TestMethod]
+        public void GetAggregateListOfStatesGivenPeopleCollection_Read_Success()
+        {
+            SampleData sampleData = new();
+            string states = sampleData.GetAggregateListOfStatesGivenPeopleCollection(sampleData.People);
+            Assert.IsNotNull(states);
+            Assert.AreNotEqual<string>(string.Empty, states);
+        }
     }
 }

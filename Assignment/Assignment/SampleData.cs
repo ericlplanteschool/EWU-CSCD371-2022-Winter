@@ -65,6 +65,11 @@ namespace Assignment
 
         // 6.
         public string GetAggregateListOfStatesGivenPeopleCollection(
-            IEnumerable<IPerson> people) => throw new NotImplementedException();
+            IEnumerable<IPerson> people)
+        {
+            IEnumerable<string> states = people.Select(person => person.Address.State);
+            string allStates = states.Aggregate(string.Empty, (statesList, nextState) => $"{statesList}, {nextState}");
+            return allStates;
+        }
     }
 }
