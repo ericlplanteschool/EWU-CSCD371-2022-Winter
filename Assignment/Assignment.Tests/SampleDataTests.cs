@@ -27,5 +27,14 @@ namespace Assignment.Tests
             Assert.AreEqual<int>(50, sampleData.People.Count());
             Assert.AreEqual<string>("Priscilla", sampleData.People.First().FirstName);
         }
+
+        [TestMethod]
+        public void GetUniqueSortedListOfStatesGivenCsvRows_Read_Success()
+        {
+            SampleData sampleData = new();
+            IEnumerable<string> states = sampleData.GetUniqueSortedListOfStatesGivenCsvRows();
+            Assert.AreEqual("AL", states.First());
+            Assert.AreEqual("WV", states.Last());
+        }
     }
 }

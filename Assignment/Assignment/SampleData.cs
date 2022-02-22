@@ -17,8 +17,17 @@ namespace Assignment
         }
 
         // 2.
-        public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows() 
-            => throw new NotImplementedException();
+        public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
+        {
+            List<string> states = new();
+            foreach (var row in CsvRows)
+            {
+                var columns = row.Split(',');
+                states.Add(columns[6]);
+            }
+            states.Sort();
+            return states;
+        }
 
         // 3.
         public string GetAggregateSortedListOfStatesUsingCsvRows()
