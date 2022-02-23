@@ -14,14 +14,11 @@ namespace Assignment
         // 2.
         public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
         {
-            List<string> states = new();
-            foreach (var row in CsvRows)
-            {
-                var columns = row.Split(',');
-                states.Add(columns[6]);
-            }
-            states.Sort();
-            return states;
+            return CsvRows
+            .Select(x => x.Split(','))
+            .Select(y => y[6]).OrderBy(z => z)
+            .Distinct()
+            .ToList();
         }
 
         // 3.
@@ -34,27 +31,35 @@ namespace Assignment
         // 4.
         public IEnumerable<IPerson> People
         {
-            get
-            {
-                List<Person> people = new();
-                foreach (var row in CsvRows)
-                {
-                    var columns = row.Split(',');
-                    Address address = new(columns[4], columns[5], columns[6], columns[7]);
-                    people.Add(new Person(columns[1], columns[2], address, columns[3]));
-                }
-                return people;
-            }
+            get => CsvRows.Select(x =>
+            x.Split(','))
+               .OrderBy(state => state[6])
+               .ThenBy(city => city[5])
+               .ThenBy(zipCode => zipCode[7])
+            .Select(
+                line => new Person(
+                    line[1],
+                    line[2],
+                    new Address(
+                        line[4],
+                        line[5],
+                        line[6],
+                        line[7]),
+                    line[3])
+            );
         }
 
         // 5.
         public IEnumerable<(string FirstName, string LastName)> FilterByEmailAddress(
             Predicate<string> filter)
         {
-            IEnumerable<IPerson> people = People.Where(person => filter(person.EmailAddress));
-            List<(string, string)> names = new();
-            foreach (Person person in people) names.Add((person.FirstName, person.LastName));
-            return names;
+            IEnumerable<IPerson> people = new SampleData().People;
+
+            IEnumerable<(string FirstName, string LastName)> result = people
+                .Where(x => filter(x.EmailAddress))
+                .Select(name => (first: name.FirstName, last: name.LastName));
+
+            return result;
         }
 
         // 6.
