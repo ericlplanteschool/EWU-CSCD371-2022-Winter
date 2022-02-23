@@ -28,8 +28,7 @@ namespace Assignment
         public string GetAggregateSortedListOfStatesUsingCsvRows()
         {
             string[] states = GetUniqueSortedListOfStatesGivenCsvRows().ToArray();
-            String allStates = string.Join("", states);
-            return allStates;
+            return string.Join(", ", states);
         }
 
         // 4.
