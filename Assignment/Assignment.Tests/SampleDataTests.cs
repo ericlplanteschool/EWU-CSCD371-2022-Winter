@@ -21,7 +21,7 @@ namespace Assignment.Tests
         }
 
         [TestMethod]
-        public void AssignmentSampleData_Read_FirstRowSkipped()
+        public void CsvRows_Read_FirstRowSkipped()
         {
             // Arrange
             IEnumerable<string> csvRows = sampleData.CsvRows;
@@ -35,7 +35,18 @@ namespace Assignment.Tests
         [TestMethod]
         public void GetUniqueSortedListOfStatesGivenCsvRows_HardCoded()
         {
-            //not sure what we are supposed to be testing with the hard coded list
+            List<IAddress> addresses = new();
+            addresses.Add(new Address("53 Grim Point", "Spokane", "WA", "99022"));
+            addresses.Add(new Address("1 Rutledge Point", "Spokane", "WA", "99021"));
+            addresses.Add(new Address("6487 Pepper Wood Court", "Spokane", "WA", "99021"));
+
+            IEnumerable<string> spokaneAddressStates = addresses.Select(address => address.State).Distinct();
+            IEnumerable<string> states = sampleData.GetUniqueSortedListOfStatesGivenCsvRows().Select(state => "WA").Distinct();
+
+            string statesInSpokane = string.Join(", ", spokaneAddressStates.ToArray());
+            string allStatesWAOnly = string.Join(", ", states.ToArray());
+
+            Assert.AreEqual<string>(statesInSpokane, allStatesWAOnly);
         }
 
         [TestMethod]
