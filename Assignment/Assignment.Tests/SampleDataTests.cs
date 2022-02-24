@@ -10,68 +10,18 @@ namespace Assignment.Tests
     [TestClass]
     public class SampleDataTests
     {
-        IEnumerator<string>? stringEnumerator;
-        SampleData sampleData = new();
+
+        readonly SampleData sampleData = new();
 
         [TestMethod]
         public void CsvRows_Read_Success()
         {
             Assert.IsNotNull(sampleData.CsvRows);
             Assert.AreEqual<int>(50, sampleData.CsvRows.Count());
-            Assert.AreEqual<string>("1,Priscilla,Jenyns,pjenyns0@state.gov,7884 Corry Way,Helena,MT,70577", sampleData.CsvRows.First());
         }
 
         [TestMethod]
-        public void People_Read_Success()
-        {
-            Assert.IsNotNull(sampleData.People);
-            Assert.AreEqual<int>(50, sampleData.People.Count());
-            Assert.AreEqual<string>("Arthur", sampleData.People.First().FirstName);
-        }
-
-        [TestMethod]
-        public void GetUniqueSortedListOfStatesGivenCsvRows_Read_Success()
-        {
-            IEnumerable<string> states = sampleData.GetUniqueSortedListOfStatesGivenCsvRows();
-            Assert.AreEqual<string>("AL", states.First());
-            Assert.AreEqual<string>("WV", states.Last());
-        }
-
-        [TestMethod]
-        public void GetAggregateSortedListOfStatesUsingCsvRows_Read_Success()
-        {
-            string states = sampleData.GetAggregateSortedListOfStatesUsingCsvRows();
-            Assert.IsNotNull(states);
-            Assert.AreNotEqual<string>(string.Empty, states);
-        }
-
-        [TestMethod]
-        public void GetAggregateListOfStatesGivenPeopleCollection_Read_Success()
-        {
-            string states = sampleData.GetAggregateListOfStatesGivenPeopleCollection(sampleData.People);
-            Assert.IsNotNull(states);
-            Assert.AreNotEqual<string>(string.Empty, states);
-        }
-
-        [TestMethod]
-        public void CsvRows_GetData_Success()
-        {
-            // Arrange.
-            stringEnumerator = sampleData.CsvRows.GetEnumerator();
-            string getData;
-
-            // Act.
-            while (stringEnumerator.MoveNext())
-            {
-                getData = stringEnumerator.Current;
-
-                // Assert.
-                Assert.IsNotNull(getData);
-            }
-        }
-
-        [TestMethod]
-        public void AssignmentSampleData_1stRowSkipped_Success()
+        public void AssignmentSampleData_Read_FirstRowSkipped()
         {
             // Arrange
             IEnumerable<string> csvRows = sampleData.CsvRows;
@@ -79,20 +29,7 @@ namespace Assignment.Tests
             // Act.
 
             // Assert.
-            Assert.IsFalse(csvRows.First().Contains("Id"));
-        }
-
-        [TestMethod]
-        public void GetUniqueSortedListOfStatesGivenCsvRows_isSorted()
-        {
-            // Arrange.
-            List<string> list = sampleData.GetUniqueSortedListOfStatesGivenCsvRows().ToList();
-            IEnumerable<string> temp = sampleData.CsvRows.Select(line => line.Split(',')).Select(x => x[6]).OrderBy(x => x).Distinct();
-
-            // Act.
-
-            // Assert.
-            Assert.IsTrue(list.SequenceEqual(temp));
+            Assert.AreEqual<string>("1,Priscilla,Jenyns,pjenyns0@state.gov,7884 Corry Way,Helena,MT,70577", csvRows.First());
         }
 
         [TestMethod]
@@ -102,7 +39,21 @@ namespace Assignment.Tests
         }
 
         [TestMethod]
-        public void GetAggregateSortedListOfStatesUsingCsvRows_OutputsUniqueandSorted()
+        public void GetUniqueSortedListOfStatesGivenCsvRows_isSorted()
+        {
+            // Arrange.
+            List<string> list = sampleData.GetUniqueSortedListOfStatesGivenCsvRows().ToList();
+            IEnumerable<string> temp = sampleData.CsvRows.Select(line => line.Split(',')).Select(column => column[6]).OrderBy(state => state).Distinct();
+
+            // Act.
+
+            // Assert.
+            Assert.IsTrue(list.SequenceEqual(temp));
+        }
+
+
+        [TestMethod]
+        public void GetAggregateSortedListOfStatesUsingCsvRows_Read_Success()
         {
             // Arrange.
             string states = sampleData.GetAggregateSortedListOfStatesUsingCsvRows();
@@ -112,14 +63,14 @@ namespace Assignment.Tests
         }
 
         [TestMethod]
-        public void People_populatesCorrectly()
+        public void People_Read_Success()
         {
             // Arrange.
             IEnumerable<string> csvRows = sampleData.CsvRows;
             IEnumerable<IPerson> people = sampleData.People;
 
             // Assert.
-            Assert.IsTrue(csvRows.Count() == people.Count());
+            Assert.AreEqual<int>(csvRows.Count(), people.Count());
         }
 
         [TestMethod]
@@ -138,7 +89,7 @@ namespace Assignment.Tests
         }
 
         [TestMethod]
-        public void GetAggregateListOfStatesGivenPeopleCollection_isUnique()
+        public void GetAggregateListOfStatesGivenPeopleCollection_Read_Success()
         {
             // Arrange.
             string uniqueRows = sampleData.GetAggregateSortedListOfStatesUsingCsvRows();
