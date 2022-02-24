@@ -1,6 +1,8 @@
-﻿namespace GenericsHomework
+﻿using System.Collections;
+
+namespace GenericsHomework
 {
-    public class Node<T>
+    public class Node<T> : IEnumerable<Node<T>>
     {
         public T Value { get; private set; }
         public Node<T> Next { get; private set; }
@@ -52,5 +54,16 @@
             return false;
         }
 
+        public IEnumerator<Node<T>> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<T> ChildItems(int maximum) => throw new NotImplementedException();
     }
 }
