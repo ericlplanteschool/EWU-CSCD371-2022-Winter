@@ -25,7 +25,7 @@ namespace Assignment.Tests
             SampleData sampleData = new();
             Assert.IsNotNull(sampleData.People);
             Assert.AreEqual<int>(50, sampleData.People.Count());
-            Assert.AreEqual<string>("Priscilla", sampleData.People.First().FirstName);
+            Assert.AreEqual<string>("Arthur", sampleData.People.First().FirstName);
         }
 
         [TestMethod]
