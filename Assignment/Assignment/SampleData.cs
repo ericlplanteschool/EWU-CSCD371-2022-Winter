@@ -15,8 +15,8 @@ namespace Assignment
         public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
         {
             return CsvRows
-            .Select(x => x.Split(','))
-            .Select(y => y[6]).OrderBy(z => z)
+            .Select(row => row.Split(','))
+            .Select(column => column[6]).OrderBy(state => state)
             .Distinct()
             .ToList();
         }
@@ -31,8 +31,8 @@ namespace Assignment
         // 4.
         public IEnumerable<IPerson> People
         {
-            get => CsvRows.Select(x =>
-            x.Split(','))
+            get => CsvRows.Select(row =>
+            row.Split(','))
                .OrderBy(state => state[6])
                .ThenBy(city => city[5])
                .ThenBy(zipCode => zipCode[7])
@@ -56,7 +56,7 @@ namespace Assignment
             IEnumerable<IPerson> people = new SampleData().People;
 
             IEnumerable<(string FirstName, string LastName)> result = people
-                .Where(x => filter(x.EmailAddress))
+                .Where(person => filter(person.EmailAddress))
                 .Select(name => (first: name.FirstName, last: name.LastName));
 
             return result;
