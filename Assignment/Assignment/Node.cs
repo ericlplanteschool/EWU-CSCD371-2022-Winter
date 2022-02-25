@@ -56,14 +56,36 @@ namespace GenericsHomework
 
         public IEnumerator<Node<T>> GetEnumerator()
         {
-            throw new NotImplementedException();
+
+            Node<T> cur = this;
+
+            do
+            {
+                yield return cur;
+                cur = cur.Next;
+            } 
+            while (cur != this);
+            
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this.GetEnumerator();
         }
 
-        public IEnumerable<T> ChildItems(int maximum) => throw new NotImplementedException();
+        public IEnumerable<T> ChildItems(int max)
+        {
+            Node<T> cur = this;
+            int num = 0;
+
+            do
+            {
+                yield return cur;
+                cur = cur.Next;
+                num++;
+            }
+
+            while(num < max);
+        }
     }
 }
