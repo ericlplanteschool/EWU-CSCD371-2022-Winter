@@ -49,5 +49,15 @@ namespace GenericsHomework.Tests
             Assert.AreEqual<string>(42.ToString(), node.Value.ToString());
         }
 
+        [TestMethod]
+        public void GetEnumerator_GivenThreeItems_SuccessfullyEnumeratesThroughList()
+        {
+            Node<string> node = new("Apple");
+            node.Append("Banana");
+            node.Append("Cherry");
+            string result = node.Select(node => node.Value).Aggregate((nodeList, nextNode) => nodeList + ", " + nextNode);
+            Assert.AreEqual("Apple, Cherry, Banana", result);
+        }
+
     }
 }

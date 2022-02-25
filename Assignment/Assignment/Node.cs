@@ -73,7 +73,7 @@ namespace GenericsHomework
             return this.GetEnumerator();
         }
 
-        public IEnumerable<T> ChildItems(int max)
+        public IEnumerable<Node<T>> ChildItems(int max)
         {
             Node<T> cur = this;
             int num = 0;
