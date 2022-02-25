@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace GenericsHomework.Tests
+namespace Assignment.Tests
 {
     [TestClass]
     public class NodeTests
@@ -47,6 +47,22 @@ namespace GenericsHomework.Tests
         {
             Node<int> node = new(42);
             Assert.AreEqual<string>(42.ToString(), node.Value.ToString());
+        }
+
+        [TestMethod]
+        public void IENumberable_ChildItems_returnsCorrectNode()
+        {
+            Node<string> node = new("first");
+            node.Append("fifth");
+            node.Append("fourth");
+            node.Append("third");
+            node.Append("second");
+
+            Assert.AreEqual(node.ChildItems(2).Last(), "second");
+            Assert.AreEqual(node.ChildItems(3).Last(), "third");
+            Assert.AreEqual(node.ChildItems(4).Last(), "fourth");
+            Assert.AreEqual(node.ChildItems(5).Last(), "fifth");
+
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace GenericsHomework
+namespace Assignment
 {
     public class Node<T> : IEnumerable<Node<T>>
     {
@@ -79,7 +79,7 @@ namespace GenericsHomework
 
             do
             {
-                yield return cur;
+                yield return cur.Value;
                 cur = cur.Next;
                 num++;
             }
