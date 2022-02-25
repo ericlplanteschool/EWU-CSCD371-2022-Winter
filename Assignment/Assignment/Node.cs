@@ -56,6 +56,7 @@ namespace Assignment
 
         public IEnumerator<Node<T>> GetEnumerator()
         {
+
             Node<T> cur = this;
 
             do
