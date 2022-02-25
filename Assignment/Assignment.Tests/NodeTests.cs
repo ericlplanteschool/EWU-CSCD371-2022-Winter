@@ -62,7 +62,16 @@ namespace Assignment.Tests
             Assert.AreEqual(node.ChildItems(3).Last(), "third");
             Assert.AreEqual(node.ChildItems(4).Last(), "fourth");
             Assert.AreEqual(node.ChildItems(5).Last(), "fifth");
-
+        }
+        
+        [TestMethod]
+        public void GetEnumerator_GivenThreeItems_SuccessfullyEnumeratesThroughList()
+        {
+            Node<string> node = new("Apple");
+            node.Append("Banana");
+            node.Append("Cherry");
+            string result = node.Select(node => node.Value).Aggregate((nodeList, nextNode) => nodeList + ", " + nextNode);
+            Assert.AreEqual("Apple, Cherry, Banana", result);
         }
 
     }
