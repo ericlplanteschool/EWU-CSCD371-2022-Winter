@@ -1,0 +1,30 @@
+
+.mainbody {
+    border: 5px solid black;
+    height: 70vh;
+    width: 70vw;
+    margin: auto;
+}
+
+button:hover {
+    background: linear-gradient(90deg, rgba(2,0,36,0.8) 0%, rgba(9,9,121,0.5) 75%, rgba(0,212,255,1) 100%);
+}
+
+.menubar {
+    width: 70vw;
+    background-color: black;
+    
+}
+
+#menubutton {
+    float: right;
+}
+
+.titletext {
+    float: left;
+    color: red;
+}
+.menubutton {
+    float: right;
+    color: blue;
+}
