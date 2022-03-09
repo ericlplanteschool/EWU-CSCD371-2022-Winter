@@ -70,3 +70,11 @@ button:hover {
   .dropdown-content a:hover {background-color: #ddd}
   
   .show {display:block;}
+
+  #cardbodySetup {
+    color: red;
+  }
+
+  #cardbodyDelivery {
+    color: blue;
+  }

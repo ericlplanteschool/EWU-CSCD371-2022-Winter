@@ -1,3 +1,5 @@
+tellJoke();
+
 
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
@@ -16,15 +18,23 @@ window.onclick = function(event) {
     }
 }
 
+function tellJoke(){
 axios({
     method: 'get',
     url: 'https://v2.jokeapi.dev/joke/Programming'
 })
 .then(function (response){
-    console.log(response.data.setup);
-    setTimeout(function() {console.log(response.data.delivery)}, 4000);
+    var setup = response.data.setup;
+    var delivery = response.data.delivery;
+    if(typeof setup == 'undefined' || typeof delivery == 'undefined'){
+        setup = "Try again in a few moments.";
+        delivery = setup;
+    }
+    document.getElementById("cardbodySetup").innerHTML = setup;
+    setTimeout(function() {document.getElementById("cardbodyDelivery").innerHTML = delivery}, 4000);
 })
 .catch(function (error) {
     console.log(error);
 });
+}
 
