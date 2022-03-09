@@ -3,9 +3,8 @@
 
 <head>
     <title>Joke Page</title>
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico">
     <link rel="stylesheet" href="css/site.css">
-    <link rel="stylesheet" href="css/all.css">
     <script src="https://kit.fontawesome.com/e43f32d1e0.js" crossorigin="anonymous"></script>
 </head>
 
@@ -13,16 +12,22 @@
     <div class="mainbody">
         <span class="menubar">
             <div class="titletext">The Joke Page</div>
-            <div class="menubutton">
-                Menu<i class="fa-solid fa-bars"></i>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Menu <i class="fa-solid fa-bars size-xlarge"></i></button>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
             </div>
         </span>
     </div>
+
+    <div><button class="apiButton"><a href="https://v2.jokeapi.dev/joke/Programming">Joke API</a></button></div>
     <div><button><a href="https://v2.jokeapi.dev/joke/Programming">Joke API</a></button></div>
     
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/index.js"></script>
     
-
 </body>
 </html>
