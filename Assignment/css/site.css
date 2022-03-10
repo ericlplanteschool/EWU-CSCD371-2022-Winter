@@ -1,9 +1,10 @@
 
 .mainbody {
     border: 5px solid black;
-    height: 70vh;
+    height: 10vh;
     width: 70vw;
     margin: auto;
+    background: black;
 }
 
 button:hover {
@@ -93,5 +94,36 @@ button:hover {
   .button:hover {
     background: linear-gradient(90deg, rgba(2,0,36,0.8) 0%, rgba(9,9,121,0.5) 75%, rgba(0,212,255,1) 100%);
 }
+
+.menubutton {
+  background-color: lightseagreen;
+    border: 1px solid black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.header {
+  align-self: center;
+}
+
+.card {
+    border: 1px solid black;
+    background-color: white;
+    text-align: left;
+    width: 70vw;
+  }
+
+.cardheader{
+  color: black;
+}
+
+.cardbody{
+  background-color: white;
+}
+
 
   
