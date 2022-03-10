@@ -8,26 +8,24 @@
     <script src="https://kit.fontawesome.com/e43f32d1e0.js" crossorigin="anonymous"></script>
 </head>
 
-<body width=70%>
+<body>
     <div class="mainbody">
-        <span class="menubar">
-            <div class="titletext">The Joke Page</div>
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Menu <i class="fa-solid fa-bars size-xlarge"></i></button>
-                <div id="myDropdown" class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
-                </div>
+        <div class="titletext">The Joke Page</div>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Menu <i class="fa-solid fa-bars size-xlarge"></i></button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
             </div>
-        </span>
+        </div>
     </div>
 
     <div id="cardbodySetup"></div>
     <div id="cardbodyDelivery"></div>
 
     <div><button onclick="tellJoke()">Another Joke</button></div>
-    <div><button class="apiButton"><a href="https://v2.jokeapi.dev/joke/Programming">Joke API</a></button></div>
+    <div><a href="https://v2.jokeapi.dev/joke/Programming" class="button">Joke API</a></div>
     
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/index.js"></script>
