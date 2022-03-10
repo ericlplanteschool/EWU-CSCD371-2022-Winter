@@ -27,14 +27,15 @@ axios({
     var setup = response.data.setup;
     var delivery = response.data.delivery;
     if(typeof setup == 'undefined' || typeof delivery == 'undefined'){
-        setup = "Try again in a few moments.";
-        delivery = setup;
+        setup = "One-liner: ";
+        delivery = response.data.joke;
     }
     document.getElementById("cardbodySetup").innerHTML = setup;
     setTimeout(function() {document.getElementById("cardbodyDelivery").innerHTML = delivery}, 4000);
 })
 .catch(function (error) {
     console.log(error);
+    document.getElementById("cardbodySetup").innerHTML = "Try again in a few moments."
 });
 }
 
