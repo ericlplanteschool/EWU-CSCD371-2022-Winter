@@ -9,15 +9,6 @@ button:hover {
   background: linear-gradient(90deg, rgba(2,0,36,0.8) 0%, rgba(9,9,121,0.5) 75%, rgba(0,212,255,1) 100%);
 }
 
-.menubar {
-  width: 70vw;
-  background-color: black;
-}
-
-#menubutton {
-  float: right;
-}
-
 .titletext {
   float: left;
   color: red;
@@ -52,7 +43,6 @@ button:hover {
 .dropdown {
   position: relative;
   display: inline-block;
-  float: right;
 }
 
 .dropdown-content {
@@ -75,12 +65,12 @@ button:hover {
 
 .show {display:block;}
 
-#cardbodySetup {
-  color: red;
+#cardbodyDelivery {
+  color: black;
 }
 
 #cardbodyDelivery {
-  color: blue;
+  color: black;
 }
 
 .button {
@@ -105,11 +95,6 @@ button:hover {
 
 .button:hover {
   background: linear-gradient(90deg, rgba(2,0,36,0.8) 0%, rgba(9,9,121,0.5) 75%, rgba(0,212,255,1) 100%);
-}
-
-
-.header {
-  align-self: center;
 }
 
 .card {
@@ -142,10 +127,3 @@ button:hover {
 .cardfooter{
   padding: 10px;
 }
-
-.jokeBox{
-
-}
-
-
-  
