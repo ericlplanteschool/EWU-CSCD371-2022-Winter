@@ -10,36 +10,45 @@
 
 <body>
     <div class="mainbody">
-        <div class="titletext"><h1>EWU</h1></div>
-        <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Menu <i class="fa-solid fa-bars size-xlarge"></i></button>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#" class="menubutton">Link 1</a>
-                <a href="#" class="menubutton">Link 2</a>
-                <a href="#" class="menubutton">Link 3</a>
+        <div class="nav">
+            <h1 class="titletext">
+                EWU
+            </h1>
+
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Menu <i class="fa-solid fa-bars size-xlarge"></i></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#" class="button buttonPrimary">Link 1</a>
+                    <a href="#" class="button buttonPrimary">Link 2</a>
+                    <a href="#" class="button buttonPrimary">Link 3</a>
+                </div>
             </div>
         </div>
-    </div>
-
     
-    <h1>The Joke Page</h1>
-    <hr class="solid">
-    <div class="card">
-    <div class="cardheader">
-    <h2>A Joke</h2>
-    <hr class="solid">
-    </div>
 
-    <div class="cardbody">
-    <div id="cardbodySetup"></div>
-    <div id="cardbodyDelivery"></div>
-    <hr class="solid">
-    </div>
-    <button onclick="tellJoke()">Another Joke</button>
-    <a href="https://v2.jokeapi.dev/joke/Programming" class="button">Joke API</a>
-    </div>
+        <div class="jokeBox">
+            <h1>The Joke Page</h1>
+            <hr class="solid">
+            <div class="card">
+                <div class="cardheader">
+                    <h2>A Joke</h2>
+                </div>
+
+                <div class="cardbody">
+                    <p id="cardbodySetup"></p>
+                    <p id="cardbodyDelivery"></p>
+                </div>
+
+                <div class="cardfooter">
+                    <button class="button buttonPrimary" onclick="tellJoke()">Another Joke</button>
+                    <a href="https://v2.jokeapi.dev/joke/Programming" class="button buttonSecondary">Joke API</a>
+                </div>
+            </div>
+        </div>
+
+        
+        </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/index.js"></script>
-    
 </body>
 </html>
